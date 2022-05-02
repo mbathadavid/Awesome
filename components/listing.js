@@ -1,22 +1,25 @@
 import React from 'react';
 import { StyleSheet,Text,View,FlatList,TouchableOpacity } from 'react-native';
-import  Icon from 'react-native-vector-icons/FontAwesome';
-//import { Icon } from 'react-native-elements';
+//import  Icon from 'react-native-vector-icons/FontAwesome';
+import { Icon } from 'react-native-elements';
 
 function Listing({ names }) {
-  return (
+  const pressHandler = (id) => {
+    console.log(id)
+  }
 
+  return (
     <View style={styles.listdiv}>
         <FlatList
       data={names}
       keyExtractor={(item) => item.id}
       renderItem={({ item }) => (
-        <TouchableOpacity>
-        <View>
+        <TouchableOpacity onPress={() => pressHandler(item.id)}>
+        <View style={styles.listing}>
         <Icon
         name="delete"
         />
-        <Text style={styles.listing}>{item.fname}   {item.lname}</Text>
+        <Text style={styles.itemText}>{item.fname}   {item.lname}</Text>
         </View>
         </TouchableOpacity>
       )}
@@ -28,18 +31,27 @@ function Listing({ names }) {
 const styles = StyleSheet.create({
     listdiv: {
         margin: 20,
-        flex: 1
+        flex: 1,
     },
     listing: {
         fontSize: 20,
         color: 'black',
-        textAlign: 'center',
+        flexDirection: 'row',
+        //textAlign: 'center',
         borderWidth: 2,
         borderStyle: 'dashed',
         borderColor: '#bbb',
         borderRadius: 10,
         margin: 10,
-        padding: 6
+        padding: 6,
+    },
+    list: {
+      flex: 1,
+    },
+    itemText: {
+      marginLeft: 10,
+      color: 'black',
+      fontWeight: 'bold',
     }
 })
 

@@ -4,7 +4,7 @@ import { StyleSheet,Text,View } from 'react-native';
 function Header() {
   return (
     <View>
-        <Text style={styles.header}>Names List</Text>
+        <Text style={styles.header}>FARMCONNECT</Text>
     </View>
   )
 }
@@ -14,8 +14,9 @@ const styles = StyleSheet.create({
         fontSize: 20,
         padding: 10,
         marginTop: 0,
+        fontWeight: 'bold',
         textAlign: 'center',
-        backgroundColor: 'coral'
+        backgroundColor: '#008000'
     }
 })
 
